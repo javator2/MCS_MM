@@ -1,19 +1,42 @@
 package com.sdacademy.mvc.contoller;
 
-import org.junit.jupiter.api.DisplayName;
+import com.sdacademy.mvc.model.GiantModel;
+import com.sdacademy.mvc.model.Health;
+import com.sdacademy.mvc.view.GiantView;
 import org.junit.jupiter.api.Test;
 
-public class GiantControllerTest {
+import static org.mockito.Mockito.*;
 
-    @DisplayName("Test test 1,  2,  3 ....")
+class GiantControllerTest {
+
     @Test
-    public void test01() {
+    void setHeath() {
         //given
-
+        final GiantModel model = mock(GiantModel.class);
+        final GiantView view = mock(GiantView.class);
+        final GiantController controller = new GiantController(model, view);
+        verifyZeroInteractions(model, view);
         //when
+        for (Health health : Health.values()) {
+            System.out.println(health.toString());
+            //then
+            controller.setHealth(health);
+            verify(model).setHealth(health);
+        }
+    }
 
-        //then
+    @Test
+    void updateView() {
+        //given
+        final GiantModel model = mock(GiantModel.class);
+        final GiantView view = mock(GiantView.class);
+        final GiantController controller = new GiantController(model, view);
+        verifyZeroInteractions(model, view);
+        //when
+        controller.updateView();
+        verify(view).equals(controller);
+        }
 
     }
 
-}
+
