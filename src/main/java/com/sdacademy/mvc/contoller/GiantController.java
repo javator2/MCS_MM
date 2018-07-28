@@ -6,10 +6,12 @@ import com.sdacademy.mvc.model.Health;
 import com.sdacademy.mvc.model.Nourshiment;
 import com.sdacademy.mvc.view.GiantView;
 
+
 public class GiantController {
 
     private GiantView giantView;
     private  GiantModel giantModel;
+
 
 
 
